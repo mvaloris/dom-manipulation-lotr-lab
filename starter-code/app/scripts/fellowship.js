@@ -19,10 +19,7 @@ var buddies = [
 var lands = ['The Shire', 'Rivendell', 'Mordor'];
 var body = document.querySelector('body');
 
-
 // Part 1
-
-
 function makeMiddleEarth() {
   // create a section tag with an id of middle-earth
   var middleEarth = document.createElement("section");
@@ -41,6 +38,7 @@ function makeMiddleEarth() {
   }
 }
 makeMiddleEarth();
+
 // Part 2
 function makeHobbits() {
   // display an unordered list of hobbits in the shire (which is the first article tag on the page)
@@ -48,7 +46,7 @@ function makeHobbits() {
   for(var i=0; i < hobbits.length; i++) {
     var item = document.createElement('li');
     // give each hobbit a class of hobbit
-    list.className = "hobbit";
+    list.className = "hobbits";
     item.innerHTML = hobbits[i];
     list.appendChild(item);
     console.log(list);
@@ -57,6 +55,7 @@ function makeHobbits() {
   theShire.appendChild(list);
 }
 makeHobbits();
+
 // Part 3
 function keepItSecretKeepItSafe() {
   // create a div with an id of 'the-ring'
@@ -66,14 +65,14 @@ function keepItSecretKeepItSafe() {
   // give the div a class of 'magic-imbued-jewelry'
   ring.className = "magic-imbued-jewelry";
   // add an event listener so that when a user clicks on the ring, the nazgulScreech function (provided) is invoked
-  audioElement.setAttribute('src', '../app/media/nazgul_screech.mp3');
-  ring.addEventListener("click", audioElement);
+  ring.addEventListener("click", nazgulScreech);
   console.log(ring);
   // add the ring as a child of Frodo
   var theRing = document.querySelector("li");
   theRing.appendChild(ring);
 }
 keepItSecretKeepItSafe();
+
 // Part 4
 function makeBuddies() {
   // create an aside tag
@@ -82,7 +81,7 @@ function makeBuddies() {
   var buddiesList = document.createElement('ul');
   for(var i=0; i < buddies.length; i++) {
     var buddiesItem = document.createElement('li');
-    buddiesList.className = "buddies";
+    buddiesList.id = "buddies";
     buddiesItem.innerHTML = buddies[i];
     buddiesList.appendChild(buddiesItem);
 
@@ -96,8 +95,8 @@ makeBuddies();
 // Part 5
 function beautifulStranger() {
   // change the 'Strider' textnode to 'Aragorn'
-  var nameStrider = document.querySelectorAll(".buddies");
-  nameStrider[3].textContent='Aragorn';
+document.querySelectorAll("ul#buddies")[3].textContent = "Aragorn";
+
 }
 
 beautifulStranger();
@@ -107,6 +106,7 @@ beautifulStranger();
 
 function leaveTheShire() {
   // assemble the hobbits and move them to Rivendell
+  var assembleHobbits = document.querySelectorAll("ul.hobbits");
 }
 
 

@@ -129,17 +129,21 @@ function forgeTheFellowShip() {
   }
   // after each character is added make an alert that they have joined your party
 }
-
 forgeTheFellowShip();
 
 // Part 8
 
 function theBalrog() {
   // change the 'Gandalf' textNode to 'Gandalf the White'
-  // apply style to the element
+  var gandolf = document.querySelectorAll('li')[0];
+   // apply style to the element
+  gandolf.textContent = "Gandolf the White";
   // make the background 'white', add a grey border
-}
+  gandolf.style.backgroundColor = "white";
+  gandolf.style.border = "3px solid grey";
 
+}
+theBalrog();
 
 // Part 9
 

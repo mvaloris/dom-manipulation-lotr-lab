@@ -40,6 +40,7 @@ function makeMiddleEarth() {
 makeMiddleEarth();
 
 // Part 2
+var theShire = document.querySelector("article");
 var theHobbits = document.createElement('ul');
 function makeHobbits() {
   // display an unordered list of hobbits in the shire (which is the first article tag on the page)
@@ -51,15 +52,15 @@ function makeHobbits() {
     theHobbits.appendChild(hobbitName);
     console.log(theHobbits);
   }
-  var theShire = document.querySelector("article");
+  
   theShire.appendChild(theHobbits);
 }
 makeHobbits();
 
 // Part 3
+var ring = document.createElement("div");
 function keepItSecretKeepItSafe() {
   // create a div with an id of 'the-ring'
-  var ring = document.createElement("div");
   var audioElement = document.createElement('audio');
   ring.id = "the-ring";
   // give the div a class of 'magic-imbued-jewelry'
@@ -149,33 +150,57 @@ theBalrog();
 
 function hornOfGondor() {
   // pop up an alert that the horn of gondor has been blown
+  alert("The horn of gondor has been blown");
   // Boromir's been killed by the Uruk-hai!
+  var boromir = document.querySelectorAll('li')[4];
   // put a linethrough on boromir's name
+  boromir.style.textDecoration = "line-through";
   // Remove Boromir from the Fellowship
+  boromir.remove();
 }
-
+hornOfGondor();
 
 // Part 10
-
+var mordor = document.querySelectorAll("article")[2];
+var mountDoom = document.createElement("div");
+var frodo = document.querySelectorAll("li")[4];
+var sam = document.querySelectorAll("li")[5];
 function itsDangerousToGoAlone(){
   // take Frodo and Sam out of the fellowship and move them to Mordor
-  // add a div with an id of 'mount-doom' to Mordor
-}
 
+  mordor.appendChild(frodo);
+  mordor.appendChild(sam);
+  // add a div with an id of 'mount-doom' to Mordor
+  mountDoom.id = "mount-doom";
+  mordor.appendChild(mountDoom);
+
+}
+itsDangerousToGoAlone();
 
 // Part 11
-
+var gollum = document.createElement("div");
 function weWantsIt() {
   // Create a div with an id of 'gollum' and add it to Mordor
+  gollum.id = "gollum";
+  mordor.appendChild(gollum);
   // Remove the ring from Frodo and give it to Gollum
+  var theRing = document.getElementById("the-ring");
+  gollum.appendChild(theRing);
   // Move Gollum into Mount Doom
+  mountDoom.appendChild(gollum);
 }
-
+weWantsIt();
 
 // Part 12
 
 function thereAndBackAgain() {
   // remove Gollum and the Ring from the document
+  gollum.remove();
   // remove all the baddies from the document
+  buddiesList.remove();
   // Move all the hobbits back to the shire
+  theHobbits.appendChild(frodo);
+  theHobbits.appendChild(sam);
+  theShire.appendChild(theHobbits);
 }
+thereAndBackAgain();
